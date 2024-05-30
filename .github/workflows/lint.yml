@@ -15,6 +15,8 @@ jobs:
           node-version: 'lts/*'
       - name: Install dependencies 🛠️
         run: npm i
+        env:
+          SX_READ_TOKEN: ${{ secrets.SX_READ_TOKEN }}
       - name: Lint TS 🧹
         run: npm run lint:ts
       - name: Lint SCSS
