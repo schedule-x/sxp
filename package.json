@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --write "
+    "format": "prettier --write ",
+    "lint:scss": "npx stylelint \"**/*.scss\"",
+    "lint:ts": "npx eslint -c eslintrc.cjs . --ext .ts,.tsx"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,9 @@
     "@codemirror/lang-javascript": "^6.2.1",
     "@schedule-x/calendar": "^1.42.2",
     "@schedule-x/date-picker": "^1.42.2",
-    "@schedule-x/event-recurrence": "^1.42.2",
     "@schedule-x/drag-and-drop": "^1.42.2",
     "@schedule-x/event-modal": "^1.42.2",
+    "@schedule-x/event-recurrence": "^1.42.2",
     "@schedule-x/react": "^1.41.1",
     "@schedule-x/resize": "^1.42.2",
     "@schedule-x/scroll-controller": "^1.42.2",
@@ -42,8 +44,16 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@schedule-x/eslint-config": "^1.41.2",
+    "@schedule-x/prettier-config": "^1.42.2",
     "@types/node": "20.12.10",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-boundaries": "^4.2.1",
     "sass": "^1.72.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard-scss": "^13.1.0",
     "typescript": "^5.3.3"
   }
 }
