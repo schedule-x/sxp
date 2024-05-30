@@ -1,0 +1,24 @@
+# Installing
+
+Upon purchasing a premium subscription you will receive an authentication token. This you will need for the following steps.
+
+## 1. `.npmrc`
+
+In order to download the premium packages you need to add an `.npmrc` file or edit your existing one. Exchange `${SX_PREMIUM_TOKEN}` with your actual token. This can also be done via environment variables.
+
+```
+@sx-premium:registry=https://npm.schedule-x.dev
+//npm.schedule-x.dev/:_authToken=${SX_PREMIUM_TOKEN}
+```
+
+## 2. Install the packages
+
+```
+npm i @sx-premium/interactive-event-modal
+```
+
+and/or:
+
+```
+npm i @sx-premium/sidebar
+```

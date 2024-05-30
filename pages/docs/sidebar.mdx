@@ -1,0 +1,47 @@
+# Sidebar
+
+A component for adding a sidebar to the calendar. Enables you to toggle the visibility of calendars, and adds a button for opening the interactive event modal.
+
+## Installing
+
+```bash copy
+npm install @sx-premium/sidebar
+```
+
+## Usage
+
+```js
+import { createCalendar } from '@schedule-x/calendar'
+import { createSidebarPlugin } from "@sx-premium/sidebar";
+import { createEventsServicePlugin } from "@schedule-x/events-service";
+import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
+
+import '@sx-premium/sidebar/index.css'
+import '@sx-premium/interactive-event-modal/index.css'
+import '@schedule-x/theme-default/dist/time-picker.css'
+
+const eventsService = createEventsServicePlugin()
+const interactiveEventModal = createInteractiveEventModal({
+  eventsService,
+  availablePeople: ['John Doe', 'Jane Doe'],
+  onAddEvent: (event) => {
+    console.log('Event added', event)
+  }
+})
+const sidebar = createSidebarPlugin({
+  eventsService,
+  activeCalendarIds: ['personal', 'work', 'leisure', 'school'] // decides which calendars are active on initializing the calendar
+})
+
+const calendar = createCalendar({
+  // ... other configuration
+  plugins: [
+    eventsService,
+    sidebar,
+    interactiveEventModal
+  ]
+})
+
+calendar.render(document.getElementById('your-calendar-wrapper'))
+
+```

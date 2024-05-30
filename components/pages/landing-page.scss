@@ -1,0 +1,225 @@
+@use '../../theme/mixins' as mixins;
+
+$heading-width: 700px;
+
+
+html {
+  .main {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+
+  scroll-behavior: smooth;
+}
+
+.heading-font {
+  font-weight: 700;
+}
+
+.landingPage {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f4;
+
+  @include mixins.smaller-screens {
+    padding: 0 1.5rem;
+  }
+}
+
+.landingPage__heroAndDemo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+}
+
+.landingPage__pricing {
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f4;
+  width: 100%;
+}
+
+.landingPageBG {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  background-repeat: repeat;
+  opacity: 0.05;
+}
+
+.landingPage h1 {
+  max-width: $heading-width;
+  font-size: 4.25rem;
+  font-weight: 700;
+  margin: 3rem auto 5rem;
+  text-align: center;
+  text-wrap: balance;
+  color: #002c61;
+
+  .dark & {
+    color: #d0bcff;
+  }
+
+  @include mixins.smaller-screens {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    text-wrap: initial;
+  }
+}
+
+.landingPage .heroSubHeading {
+  max-width: $heading-width;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 auto 2rem;
+  text-align: center;
+  text-wrap: balance;
+  color: #525456;
+  margin-bottom: 2rem;
+
+  .dark & {
+    color: #5a585d;
+  }
+
+  @include mixins.smaller-screens {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.sx-react-calendar-wrapper {
+  width: 100%;
+  max-width: 950px;
+  height: 600px;
+  margin-bottom: 4rem;
+
+  // lower on mobile
+  @include mixins.mobile-screens {
+    height: 500px;
+  }
+}
+
+.headingGradient {
+  font-size: 4.75rem;
+  position: relative;
+  background: linear-gradient(to right, #654e07 0%, #D4AF37 100%);
+  text-shadow: 0 0 90px rgb(0 0 0 / 30%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  .dark & {
+    background: linear-gradient(to left, #deccfa 0%, #6750a4 100%);
+    text-shadow: 0 0 90px rgb(0 0 0 / 30%);
+    background-clip: text;
+  }
+
+  .app-underline {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -3rem;
+  }
+}
+
+.landingPageActions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+
+  @include mixins.smaller-screens {
+    margin-bottom: 3rem;
+  }
+
+  @include mixins.mobile-screens {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.landingPageAction {
+  font-size: 1.125rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+
+  @include mixins.smaller-screens {
+    font-size: 1rem;
+  }
+
+  @include mixins.mobile-screens {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (hover: hover) {
+  .landingPageAction:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.buttonPrimary {
+  background: linear-gradient(to right, #654e07 0%, #D4AF37 100%);
+  color: #fff;
+}
+
+.buttonOutlined {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #D4AF37;
+  box-shadow: inset 0 0 0 2px #D4AF37;
+
+  .dark & {
+    color: #d0bcff;
+    border-color: #d0bcff;
+    box-shadow: inset 0 0 0 2px #d0bcff;
+  }
+
+  .github-icon {
+    margin-left: 0.5rem;
+  }
+}
+
+.pricingHeading {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #002c61;
+
+  .dark & {
+      color: #d0bcff;
+  }
+
+  @include mixins.smaller-screens {
+      font-size: 2rem;
+  }
+}
+
+.landingPageCards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+
+  @include mixins.smaller-screens {
+    margin-bottom: 3rem;
+  }
+}

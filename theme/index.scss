@@ -1,0 +1,77 @@
+@use 'mixins' as mixins;
+
+.heading-font {
+  /* stylelint-disable */
+  font-family: '__Podkova_f01382', '__Podkova_Fallback_f01382';
+  /* stylelint-enable */
+  font-weight: 700;
+}
+
+.sx__sidebar .sx__add-event-button {
+  height: 48px;
+  margin-bottom: var(--sx-spacing-padding3);
+}
+
+.page-wrapper {
+  width: 100%;
+  min-height: calc(100vh - var(--nextra-navbar-height) - 165px);
+  margin: 0 auto;
+
+  input {
+    outline-offset: unset;
+  }
+
+  input:focus-visible {
+    --tw-ring-offset-shadow: unset;
+    --tw-ring-shadow: unset;
+    --tw-ring-opacity: initial;
+    --tw-ring-color: unset;
+    --tw-ring-offset-width: unset;
+    --tw-ring-offset-color: unset;
+
+    box-shadow: unset;
+    outline-offset: unset;
+  }
+}
+
+.header-logo {
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.logo-lg {
+  @include mixins.smaller-screens {
+    display: none;
+  }
+
+  @include mixins.large-screens {
+    display: block;
+  }
+}
+
+.logo-sm {
+  @include mixins.mobile-screens {
+    display: block;
+  }
+
+  @include mixins.large-screens {
+    display: none;
+  }
+}
+
+.dark .logo-light {
+  display: none;
+}
+
+.dark .logo-dark {
+  display: block;
+}
+
+.light .logo-light {
+  display: block;
+}
+
+.light .logo-dark {
+  display: none;
+}

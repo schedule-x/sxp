@@ -1,0 +1,9 @@
+{
+  "all": {
+    "display": "hidden",
+    "theme": {
+      "sidebar": false,
+      "toc": true
+    }
+  }
+}

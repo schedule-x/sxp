@@ -1,0 +1,38 @@
+# Interactive event modal
+
+A plugin for displaying an interactive modal for adding, editing and removing events.
+
+## Installing
+
+```bash copy
+npm install @sx-premium/interactive-event-modal
+```
+
+## Usage
+
+```js
+import { createCalendar } from '@schedule-x/calendar'
+import { createEventsServicePlugin } from "@schedule-x/events-service";
+import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
+
+import '@sx-premium/interactive-event-modal/index.css'
+import '@schedule-x/theme-default/dist/time-picker.css'
+
+const eventsService = createEventsServicePlugin()
+
+const calendar = createCalendar({
+  // ...other configuration
+  plugins: [
+    createInteractiveEventModal({
+      eventsService,
+      availablePeople: ['John Doe', 'Jane Doe'],
+      onAddEvent: (event) => {
+        console.log('Event added', event)
+      }
+    })
+  ]
+})
+
+calendar.render(document.getElementById('your-calendar-wrapper'))
+```
+
