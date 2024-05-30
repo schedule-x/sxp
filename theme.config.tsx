@@ -15,7 +15,7 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     'https://github.com/schedule-x/schedule-x/tree/main/website',
   footer: {
-    text: `© 2023-present Tom Österlund`,
+    text: `© 2023-present Tom Österlund, Schedule-X`,
   },
   darkMode: false,
   useNextSeoProps() {

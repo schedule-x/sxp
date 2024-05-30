@@ -3,6 +3,7 @@ import AppUnderline from "../partials/svg/underline";
 import AppCalendar from "../partials/app-calendar/app-calendar";
 import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
+import Image from "next/image";
 
 export default function LandingPage() {
   return (
@@ -36,7 +37,8 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <AppCalendar/>
+          {/*<AppCalendar/>*/}
+          <Image className="landingPageDemoGif" src={'/videos/demo-premium.gif'} alt={'Demo'} width={800} height={250}/>
         </section>
 
         <section id={'pricing'} className={'landingPage landingPage__pricing'}>

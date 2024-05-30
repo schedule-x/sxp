@@ -8,7 +8,7 @@
     }
   },
   "home": {
-    "title": "Home",
+    "title": "Schedule-X free",
     "type": "page",
     "href": "https://schedule-x.dev"
   },
@@ -16,19 +16,9 @@
     "title": "Docs",
     "type": "page"
   },
-  "demos": {
-    "display": "hidden",
-    "title": "Demos",
-    "type": "page"
-  },
   "attributions": {
     "display": "hidden",
-    "title": "Demos",
-    "type": "page"
-  },
-  "checkout": {
-    "display": "hidden",
-    "title": "Demos",
+    "title": "Attributions",
     "type": "page"
   },
   "newsletter": {

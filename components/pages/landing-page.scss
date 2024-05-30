@@ -22,10 +22,6 @@ html {
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f4;
-
-  @include mixins.smaller-screens {
-    padding: 0 1.5rem;
-  }
 }
 
 .landingPage__heroAndDemo {
@@ -35,6 +31,10 @@ html {
   background-color: #fff;
   width: 100%;
   min-height: calc(100vh - 64px);
+
+  @include mixins.smaller-screens {
+    padding: 0 1rem;
+  }
 }
 
 .landingPage__pricing {
@@ -73,7 +73,7 @@ html {
   }
 
   @include mixins.smaller-screens {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-top: 1rem;
     text-wrap: initial;
   }
@@ -119,6 +119,10 @@ html {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  @include mixins.smaller-screens {
+    font-size: 3.25rem;
+  }
+
   .dark & {
     background: linear-gradient(to left, #deccfa 0%, #6750a4 100%);
     text-shadow: 0 0 90px rgb(0 0 0 / 30%);
@@ -130,6 +134,10 @@ html {
     left: 50%;
     transform: translateX(-50%);
     bottom: -3rem;
+
+    @include mixins.smaller-screens {
+      bottom: -3.5rem;
+    }
   }
 }
 
@@ -209,8 +217,16 @@ html {
   }
 
   @include mixins.smaller-screens {
-      font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
+}
+
+.landingPageDemoGif {
+  width: 100%;
+  max-width: 950px;
+  margin-bottom: 4rem;
+  border-radius: 1rem;
 }
 
 .landingPageCards {
@@ -221,5 +237,8 @@ html {
 
   @include mixins.smaller-screens {
     margin-bottom: 3rem;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
   }
 }
