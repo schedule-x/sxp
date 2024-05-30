@@ -3,7 +3,7 @@ on:
   pull_request:
 
 env:
-  SX_READ_TOKEN: ${{ secrets.SX_READ_TOKEN }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
   release:
