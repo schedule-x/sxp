@@ -47,8 +47,7 @@ export default function LandingPage() {
             <SalesCard
               data={{
                 title: 'Team',
-                description: 'For the small team or project',
-                price: '$499',
+                description: 'All products, ready to use out of the box',
                 features: [
                   'All products',
                   'Private chat support',
@@ -63,8 +62,7 @@ export default function LandingPage() {
             <SalesCard
               data={{
                 title: 'Enterprise',
-                description: 'Unlimited usage within an organization.',
-                price: 'Custom pricing',
+                description: 'All products, plus service and custom plugins',
                 features: [
                   'All products',
                   'Private chat support',
