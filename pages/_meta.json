@@ -19,7 +19,20 @@
   "attributions": {
     "display": "hidden",
     "title": "Attributions",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
+  },
+  "imprint": {
+    "display": "hidden",
+    "title": "Imprint",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
   },
   "newsletter": {
     "display": "hidden",

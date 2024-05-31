@@ -38,7 +38,7 @@ export default function LandingPage() {
           </div>
 
           {/*<AppCalendar/>*/}
-          <Image className="landingPageDemoGif" src={'/videos/demo-premium.gif'} alt={'Demo'} width={800} height={250}/>
+          <Image id={'demo'} className="landingPageDemoGif" src={'/videos/demo-premium.gif'} alt={'Demo'} width={800} height={250}/>
         </section>
 
         <section id={'pricing'} className={'landingPage landingPage__pricing'}>

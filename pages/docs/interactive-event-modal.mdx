@@ -2,6 +2,18 @@
 
 A plugin for displaying an interactive modal for adding, editing and removing events.
 
+## Features
+
+import FeaturesList from "../../components/partials/features-list/features-list";
+
+
+<FeaturesList features={[
+  'Adding events',
+  'Updating events',
+  'Deleting events',
+  'Works with recurring events'
+]} />
+
 ## Installing
 
 ```bash copy
@@ -27,7 +39,10 @@ const calendar = createCalendar({
       eventsService,
       availablePeople: ['John Doe', 'Jane Doe'],
       onAddEvent: (event) => {
-        console.log('Event added', event)
+        console.log(event)
+      },
+      onDeleteEvent: (eventId) => {
+        console.log(eventId)
       }
     })
   ]
@@ -35,4 +50,10 @@ const calendar = createCalendar({
 
 calendar.render(document.getElementById('your-calendar-wrapper'))
 ```
+
+## Public methods
+
+### `openEventCreationModal(id: string | number)`
+
+Method for programmatically opening the event creation modal. The id parameter is used for setting an id of the event that will be created, if the user chooses to click save.
 
