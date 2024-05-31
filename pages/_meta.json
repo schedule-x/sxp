@@ -8,7 +8,7 @@
     }
   },
   "home": {
-    "title": "Home",
+    "title": "Schedule-X free",
     "type": "page",
     "href": "https://schedule-x.dev"
   },
@@ -16,20 +16,23 @@
     "title": "Docs",
     "type": "page"
   },
-  "demos": {
-    "display": "hidden",
-    "title": "Demos",
-    "type": "page"
-  },
   "attributions": {
     "display": "hidden",
-    "title": "Demos",
-    "type": "page"
+    "title": "Attributions",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
   },
-  "checkout": {
+  "imprint": {
     "display": "hidden",
-    "title": "Demos",
-    "type": "page"
+    "title": "Imprint",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
   },
   "newsletter": {
     "display": "hidden",

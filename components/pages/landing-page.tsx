@@ -1,6 +1,5 @@
 import '@schedule-x/theme-default/dist/index.css'
 import AppUnderline from "../partials/svg/underline";
-import AppCalendar from "../partials/app-calendar/app-calendar";
 import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
 
@@ -36,7 +35,10 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <AppCalendar/>
+          {/*<AppCalendar/>*/}
+          <video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>
+            <source src={'/videos/demo.mp4'} type={'video/mp4'} />
+          </video>
         </section>
 
         <section id={'pricing'} className={'landingPage landingPage__pricing'}>
@@ -46,8 +48,7 @@ export default function LandingPage() {
             <SalesCard
               data={{
                 title: 'Team',
-                description: 'For the small team or project',
-                price: '$499',
+                description: 'All products, ready to use out of the box',
                 features: [
                   'All products',
                   'Private chat support',
@@ -62,8 +63,7 @@ export default function LandingPage() {
             <SalesCard
               data={{
                 title: 'Enterprise',
-                description: 'Unlimited usage within an organization.',
-                price: 'Custom pricing',
+                description: 'All products, plus service and custom plugins',
                 features: [
                   'All products',
                   'Private chat support',

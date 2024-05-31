@@ -21,6 +21,9 @@ export default function AppCalendar() {
     eventsService,
     onAddEvent: (event) => {
       console.log(event)
+    },
+    onDeleteEvent: (eventId) => {
+      console.log(eventId)
     }
   });
 

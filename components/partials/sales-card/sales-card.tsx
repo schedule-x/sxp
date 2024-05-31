@@ -4,7 +4,6 @@ type props = {
   data: {
     title: string;
     description: string;
-    price: string;
     features: string[];
     buttonText: string;
   };

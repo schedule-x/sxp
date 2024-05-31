@@ -2,6 +2,7 @@ import React from 'react'
 import { DocsThemeConfig } from 'nextra-theme-docs'
 import Logo from './components/theme/logo'
 import { useRouter } from 'next/router'
+import CustomFooter from "./components/theme/custom-footer";
 
 const config: DocsThemeConfig = {
   logo: Logo,
@@ -15,7 +16,7 @@ const config: DocsThemeConfig = {
   docsRepositoryBase:
     'https://github.com/schedule-x/schedule-x/tree/main/website',
   footer: {
-    text: `© 2023-present Tom Österlund`,
+    component: CustomFooter,
   },
   darkMode: false,
   useNextSeoProps() {
