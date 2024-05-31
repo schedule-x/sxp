@@ -1,6 +1,5 @@
 import '@schedule-x/theme-default/dist/index.css'
 import AppUnderline from "../partials/svg/underline";
-import AppCalendar from "../partials/app-calendar/app-calendar";
 import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
 import Image from "next/image";
