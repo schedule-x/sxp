@@ -2,7 +2,6 @@ import '@schedule-x/theme-default/dist/index.css'
 import AppUnderline from "../partials/svg/underline";
 import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
-import Image from "next/image";
 
 export default function LandingPage() {
   return (
