@@ -53,7 +53,11 @@ calendar.render(document.getElementById('your-calendar-wrapper'))
 
 ## Public methods
 
-### `openEventCreationModal(id: string | number)`
+### `openEventCreationModal(id: string | number, start?: string)`
 
 Method for programmatically opening the event creation modal. The id parameter is used for setting an id of the event that will be created, if the user chooses to click save.
+
+#### Parameters
+- `id` - id of the event that will be created
+- `start` - start date or datetime of the event that will be created
 
