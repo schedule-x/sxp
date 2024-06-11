@@ -38,6 +38,7 @@
     "@uiw/react-codemirror": "^4.21.21",
     "mongodb": "^6.6.1",
     "next": "^14.1.0",
+    "next-themes": "^0.3.0",
     "nextra": "latest",
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",

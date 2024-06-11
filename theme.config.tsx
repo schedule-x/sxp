@@ -27,6 +27,9 @@ const config: DocsThemeConfig = {
       }
     }
   },
+  nextThemes: {
+    forcedTheme: 'light',
+  },
 
   head: () => {
     // using useRouter, get full current path including host
