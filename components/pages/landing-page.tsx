@@ -37,7 +37,7 @@ export default function LandingPage() {
 
           {/*<AppCalendar/>*/}
           <video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>
-            <source src={'/videos/demo.mp4'} type={'video/mp4'} />
+            <source src={'/videos/demo-june-2.mp4'} type={'video/mp4'} />
           </video>
         </section>
 
