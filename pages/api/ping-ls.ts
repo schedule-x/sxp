@@ -23,6 +23,7 @@ export default async (req, res) => {
 
     res.json({
       userEmail: authUserEmail,
+      isTestMode: response.data.meta.test_mode,
     })
   } catch (e) {
     res.json({
