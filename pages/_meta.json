@@ -34,6 +34,15 @@
       "toc": false
     }
   },
+  "validate-license-key": {
+    "display": "hidden",
+    "title": "Imprint",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
+  },
   "newsletter": {
     "display": "hidden",
     "theme": {

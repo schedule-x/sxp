@@ -23,6 +23,7 @@
   "homepage": "https://github.com/shuding/nextra-docs-template#readme",
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.1",
+    "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
     "@schedule-x/calendar": "^1.42.2",
     "@schedule-x/date-picker": "^1.42.2",
     "@schedule-x/drag-and-drop": "^1.42.2",
