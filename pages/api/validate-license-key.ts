@@ -1,6 +1,5 @@
 import clientPromise from "../../lib/mongodb/mongodb";
 import {
-  getAuthenticatedUser,
   lemonSqueezySetup, validateLicense,
 } from "@lemonsqueezy/lemonsqueezy.js";
 
