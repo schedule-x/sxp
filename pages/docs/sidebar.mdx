@@ -45,7 +45,11 @@ const calendar = createCalendar({
   // ... other configuration
   plugins: [
     eventsService,
+    // the type-incompatibility between the open source plugins and the premium plugins is a known issue, where
+    // a fix is on the way
+    // @ts-ignore
     sidebar,
+    // @ts-ignore
     interactiveEventModal
   ]
 })
