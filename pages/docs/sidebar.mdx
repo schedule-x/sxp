@@ -38,18 +38,19 @@ const interactiveEventModal = createInteractiveEventModal({
 })
 const sidebar = createSidebarPlugin({
   eventsService,
-  activeCalendarIds: ['personal', 'work', 'leisure', 'school'] // decides which calendars are active on initializing the calendar
+
+  // Should the sidebar be open on render
+  openOnRender: false,
+
+  // Which calendars should be active on render
+  activeCalendarIds: ['personal', 'work', 'leisure', 'school']
 })
 
 const calendar = createCalendar({
   // ... other configuration
   plugins: [
     eventsService,
-    // the type-incompatibility between the open source plugins and the premium plugins is a known issue, where
-    // a fix is on the way
-    // @ts-ignore
     sidebar,
-    // @ts-ignore
     interactiveEventModal
   ]
 })
@@ -57,3 +58,7 @@ const calendar = createCalendar({
 calendar.render(document.getElementById('your-calendar-wrapper'))
 
 ```
+
+## Changelog
+
+See [changelog](/changelog) page.

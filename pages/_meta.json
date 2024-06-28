@@ -50,5 +50,14 @@
       "sidebar": false,
       "toc": true
     }
+  },
+  "changelog": {
+    "display": "hidden",
+    "title": "Changelog",
+    "type": "page",
+    "theme": {
+      "sidebar": false,
+      "toc": false
+    }
   }
 }
