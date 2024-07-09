@@ -51,13 +51,13 @@ export default function LandingPage() {
                 description: 'All products, ready to use out of the box',
                 features: [
                   'All products',
-                  'Private chat support',
+                  'Email support',
                   'Prioritized issue processing',
                 ],
-                buttonText: 'Contact sales'
+                buttonText: 'Buy now'
               }}
               buttonClass={'filled'}
-              buttonLink={'https://docs.google.com/forms/d/e/1FAIpQLSfE0G6RCUbnzbEUCMGEKcfUGx6XprAPU_IGRxNZ2UajizU7SA/viewform?usp=sf_link'}
+              buttonLink={'https://schedule-x.lemonsqueezy.com/checkout'}
             />
 
             <SalesCard
