@@ -57,7 +57,7 @@ export default function LandingPage() {
                 buttonText: 'Buy now'
               }}
               buttonClass={'filled'}
-              buttonLink={'https://schedule-x.lemonsqueezy.com/checkout'}
+              buttonLink={'https://schedule-x.lemonsqueezy.com'}
             />
 
             <SalesCard
