@@ -28,7 +28,6 @@ import { createEventsServicePlugin } from "@schedule-x/events-service";
 import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
 
 import '@sx-premium/interactive-event-modal/index.css'
-import '@schedule-x/theme-default/dist/time-picker.css'
 
 const eventsService = createEventsServicePlugin()
 
@@ -61,6 +60,9 @@ const calendar = createCalendar({
       onEndUpdate(end) {
         console.log(end)
       },
+
+      // (Optional): configure the time picker to use 12-hour format
+      has12HourTimeFormat: true,
 
       // (Optional): configuration for the field "title"
       fields: {
@@ -102,7 +104,7 @@ Method for adding an event and opening the event editing modal. Preferably used 
 
 Please note, that by default, all fields are displayed.
 
-If you, however, configure one of them, the rest will be hidden by default. For adding a field but without custom configuration, simply add it with an empty object like so:
+If you, however, configure one of them, the rest will be hidden by default. Date and time pickers are an exception here, since these are required at least when adding an event. For adding a field but without custom configuration, simply add it with an empty object like so:
 
 ```ts
 fields: {
