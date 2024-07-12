@@ -11,7 +11,6 @@ import FeaturesList from "../../components/partials/features-list/features-list"
   'Adding events',
   'Updating events',
   'Deleting events',
-  'Works with recurring events'
 ]} />
 
 ## Installing
@@ -59,6 +58,11 @@ const calendar = createCalendar({
       // (Optional): callback for when an event end property is updated
       onEndUpdate(end) {
         console.log(end)
+      },
+
+      // (Optional): callback which is invoked before opening the modal. Return false to prevent the modal from opening
+      canOpenModal: (event) => {
+        return event.calendarId === 'calendar-1';
       },
 
       // (Optional): configure the time picker to use 12-hour format
