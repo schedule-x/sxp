@@ -242,3 +242,43 @@ html {
     width: 100%;
   }
 }
+
+
+.calendar-tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #005a9e;
+  background-color: #e6f0ff;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+
+  .dark & {
+    color: #5a585d;
+  }
+}
+
+@media (width <= 735px) {
+  .calendar-tip {
+    display: none;
+  }
+}
+
+.lampEmoji {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.tipClose {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  .dark & {
+    color: #5a585d;
+  }
+}

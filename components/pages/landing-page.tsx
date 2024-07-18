@@ -2,6 +2,7 @@ import '@schedule-x/theme-default/dist/index.css'
 import AppUnderline from "../partials/svg/underline";
 import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
+import AppCalendar from "../partials/app-calendar/app-calendar";
 
 export default function LandingPage() {
   return (
@@ -35,10 +36,10 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          {/*<AppCalendar/>*/}
-          <video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>
-            <source src={'/videos/demo-june-2.mp4'} type={'video/mp4'} />
-          </video>
+          <AppCalendar/>
+          {/*<video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>*/}
+          {/*  <source src={'/videos/demo-june-2.mp4'} type={'video/mp4'} />*/}
+          {/*</video>*/}
         </section>
 
         <section id={'pricing'} className={'landingPage landingPage__pricing'}>
