@@ -7,7 +7,6 @@ import '../components/partials/app-dropdown/app-dropdown.scss'
 import { Podkova } from 'next/font/google'
 import '@sx-premium/sidebar/index.css'
 import '@sx-premium/interactive-event-modal/index.css'
-import '@schedule-x/theme-default/dist/time-picker.css'
 
 const podkova = Podkova({
   subsets: ['latin-ext'],

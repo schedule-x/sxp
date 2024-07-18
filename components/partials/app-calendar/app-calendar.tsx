@@ -19,6 +19,38 @@ export default function AppCalendar() {
 
   const interactiveEventModalPlugin = createInteractiveEventModal({
     eventsService,
+    fields: {
+      title: {
+        validator: (value) => {
+          return {
+            message: 'Title is required',
+            isValid: !!value
+          }
+        },
+      },
+      startTime: {},
+      startDate: {},
+      endDate: {},
+      endTime: {},
+      description: {},
+      people: {
+        validator: (value) => {
+          return {
+            message: 'Choose at least one person',
+            isValid: !!(value && value.length)
+          }
+        },
+      },
+      calendarId: {
+        validator: (value) => {
+          return {
+            message: 'Choose a calendar',
+            isValid: !!value
+          }
+        }
+      }
+    },
+    availablePeople: ['Ted Mosby', 'Robin Scherbatsky', 'Barney Stinson', 'Lily Aldrin', 'Marshall Eriksen'],
     onAddEvent: (event) => {
       console.log(event)
     },
@@ -28,6 +60,15 @@ export default function AppCalendar() {
   });
 
   const calendarApp = useNextCalendarApp({
+    callbacks: {
+      onDoubleClickDateTime: (dateTime: string) => {
+        interactiveEventModalPlugin.clickToCreate(dateTime, { calendarId: 'leisure' })
+      },
+
+      onDoubleClickDate: (date: string) => {
+        interactiveEventModalPlugin.clickToCreate(date, { calendarId: 'leisure' })
+      }
+    },
     views: [viewMonthGrid, viewMonthAgenda, viewWeek, viewDay],
     selectedDate: '2024-05-06',
     isDark: resolvedTheme === 'dark',
@@ -39,6 +80,7 @@ export default function AppCalendar() {
         start: '2024-05-11 10:00',
         end: '2024-05-11 12:00',
         calendarId: 'personal',
+        people: ['1', '2']
       },
       {
         id: 2,
@@ -80,17 +122,12 @@ export default function AppCalendar() {
     plugins: [
       createDragAndDropPlugin(),
       createScrollControllerPlugin({ initialScroll: '05:50' }),
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       eventsService,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       interactiveEventModalPlugin,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       createSidebarPlugin({
         eventsService,
-        activeCalendarIds: ['personal', 'leisure', 'work'] }
+        openOnRender: false,
+        activeCalendarIds: ['personal', 'leisure', 'work'] },
       )
     ],
   })
@@ -102,6 +139,13 @@ export default function AppCalendar() {
   }, [resolvedTheme])
 
   return <>
+    <div className={'calendar-tip'}>
+      <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
+      <button className={'tipClose'} onClick={() => {
+        document.querySelector('.calendar-tip')?.remove()
+      }}>✕</button>
+    </div>
+
     <ScheduleXCalendar calendarApp={calendarApp} />
   </>
 }
