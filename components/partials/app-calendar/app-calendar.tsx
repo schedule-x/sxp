@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import '@schedule-x/theme-default/dist/index.css'
 import { viewDay, viewMonthAgenda, viewMonthGrid, viewWeek } from '@schedule-x/calendar'
 import { useEffect } from 'react'
