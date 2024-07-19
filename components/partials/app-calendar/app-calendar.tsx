@@ -1,7 +1,6 @@
 /* eslint-disable max-lines */
-import '@schedule-x/theme-default/dist/index.css'
 import { viewDay, viewMonthAgenda, viewMonthGrid, viewWeek } from '@schedule-x/calendar'
-import { useEffect } from 'react'
+import {useEffect, useState} from 'react'
 import { useTheme } from 'nextra-theme-docs'
 import { createDragAndDropPlugin } from '@schedule-x/drag-and-drop'
 import { ScheduleXCalendar, useNextCalendarApp } from '@schedule-x/react/dist/index'
@@ -139,14 +138,45 @@ export default function AppCalendar() {
     }
   }, [resolvedTheme])
 
-  return <>
-    <div className={'calendar-tip'}>
-      <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
-      <button className={'tipClose'} onClick={() => {
-        document.querySelector('.calendar-tip')?.remove()
-      }}>✕</button>
-    </div>
+  const [tipClasses, setTipClasses] = useState(['calendar-tip'])
 
-    <ScheduleXCalendar calendarApp={calendarApp} />
+  function createTipWhenHoveringCalendar(calendarEl: Element) {
+    calendarEl?.addEventListener('mouseenter', (e) => {
+      setTimeout(() => {
+        console.log('hej')
+        setTipClasses([...tipClasses, 'is-open'])
+      }, 1000)
+    })
+  }
+
+  useEffect(() => {
+    let calendarEl = document.querySelector('.sx__calendar');
+
+    if (!calendarEl) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.addedNodes.length) {
+            calendarEl = document.querySelector('.sx__calendar');
+            if (calendarEl) createTipWhenHoveringCalendar(calendarEl);
+          }
+        })
+      })
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    createTipWhenHoveringCalendar(calendarEl);
+  }, []);
+
+  return <>
+    <div className={'appCalendarWrapper'}>
+      <div className={tipClasses.join(' ')}>
+        <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
+        <button className={'tipClose'} onClick={() => {
+          document.querySelector('.calendar-tip')?.remove()
+        }}>✕</button>
+      </div>
+
+      <ScheduleXCalendar calendarApp={calendarApp} />
+    </div>
   </>
 }
