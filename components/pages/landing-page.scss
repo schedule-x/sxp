@@ -248,6 +248,7 @@ html {
 }
 
 .calendar-tip {
+  visibility: hidden;
   opacity: 0;
   position: absolute;
   top: -160px;
@@ -271,6 +272,7 @@ html {
   transition: top 0.4s ease, opacity 0.4s ease;
 
   &.is-open {
+    visibility: initial;
     opacity: 1;
     top: -80px;
   }
