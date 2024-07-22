@@ -149,7 +149,7 @@ export default function AppCalendar() {
   const [tipClasses, setTipClasses] = useState(['calendar-tip'])
 
   function createTipWhenHoveringCalendar(calendarEl: Element) {
-    calendarEl?.addEventListener('mouseenter', (e) => {
+    calendarEl?.addEventListener('mouseenter', (_e) => {
       setTimeout(() => {
         setTipClasses([...tipClasses, 'is-open'])
       }, 1000)
