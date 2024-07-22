@@ -32,7 +32,8 @@ export default function AppCalendar() {
       startDate: {},
       endDate: {},
       endTime: {},
-      description: {},
+      rruleFrequency: {},
+      rruleUntil: {},
       people: {
         validator: (value) => {
           return {
@@ -50,7 +51,13 @@ export default function AppCalendar() {
         }
       }
     },
-    availablePeople: ['Ted Mosby', 'Robin Scherbatsky', 'Barney Stinson', 'Lily Aldrin', 'Marshall Eriksen'],
+    availablePeople: [
+      'Ted Mosby',
+      'Robin Scherbatsky',
+      'Barney Stinson',
+      'Lily Aldrin',
+      'Marshall Eriksen'
+    ],
     onAddEvent: (event) => {
       console.log(event)
     },
@@ -76,11 +83,12 @@ export default function AppCalendar() {
     events: [
       {
         id: 1,
-        title: 'Event 1',
+        title: 'Weekly event',
         start: '2024-05-11 10:00',
         end: '2024-05-11 12:00',
         calendarId: 'personal',
-        people: ['1', '2']
+        people: ['Ted Mosby', 'Barney Stinson'],
+        rrule: 'FREQ=WEEKLY;UNTIL=20240701T235959'
       },
       {
         id: 2,
@@ -143,7 +151,6 @@ export default function AppCalendar() {
   function createTipWhenHoveringCalendar(calendarEl: Element) {
     calendarEl?.addEventListener('mouseenter', (e) => {
       setTimeout(() => {
-        console.log('hej')
         setTipClasses([...tipClasses, 'is-open'])
       }, 1000)
     })
