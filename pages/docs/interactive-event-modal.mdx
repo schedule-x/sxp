@@ -6,12 +6,15 @@ A plugin for displaying an interactive modal for adding, editing and removing ev
 
 import FeaturesList from "../../components/partials/features-list/features-list";
 
-
 <FeaturesList features={[
-  'Adding events',
-  'Updating events',
-  'Deleting events',
+  'Adding, updating and deleting events',
+  'Click to create',
+  'Recurring events'
 ]} />
+
+<video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>
+    <source src={'/videos/interactive-modal-demo.mp4'} type={'video/mp4'} />
+</video>
 
 ## Installing
 
@@ -119,16 +122,18 @@ fields: {
 
 ### Available fields
 
-| Field name  | Notes                                                             |
-|-------------|-------------------------------------------------------------------|
-| title       |                                                                   |
-| description |                                                                   |
-| startDate   | Cannot have validator callback. Use `minDate` & `maxDate` instead |
-| startTime   | Cannot have validator callback. Use `minDate` & `maxDate` instead |
-| endDate     | Cannot have validator callback. Use `minDate` & `maxDate` instead |
-| endTime     | Cannot have validator callback. Use `minDate` & `maxDate` instead |
-| people      |                                                                   |
-| calendarId  |                                                                   |
+| Field name     | Notes                                                             |
+|----------------|-------------------------------------------------------------------|
+| title          |                                                                   |
+| description    |                                                                   |
+| startDate      | Cannot have validator callback. Use `minDate` & `maxDate` instead |
+| startTime      | Cannot have validator callback. Use `minDate` & `maxDate` instead |
+| endDate        | Cannot have validator callback. Use `minDate` & `maxDate` instead |
+| endTime        | Cannot have validator callback. Use `minDate` & `maxDate` instead |
+| rruleFrequency | Cannot have validator callback.                                   |
+| rruleUntil     | Cannot have validator callback.                                   |
+| people         |                                                                   |
+| calendarId     |                                                                   |
 
 
 ## Changelog
