@@ -78,7 +78,6 @@ export default function AppCalendar() {
     },
     views: [viewMonthGrid, viewMonthAgenda, viewWeek, viewDay],
     selectedDate: '2024-05-06',
-    isDark: resolvedTheme === 'dark',
     defaultView: viewWeek.name,
     events: [
       {
