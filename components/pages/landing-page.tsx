@@ -10,16 +10,15 @@ export default function LandingPage() {
       <div className={'landingPage page-wrapper'}>
         <section className={'landingPage landingPage__heroAndDemo'}>
           <h1>
-            Unleash the power of
-            <div className="headingGradient heading-font">
+            Your favorite calendar
+            <div className="headingGradient">
               <AppUnderline className="app-underline"/>
-              Schedule-X
+              pumped up
             </div>
           </h1>
 
           <h2 className={'heroSubHeading'}>
-            Enrich our open source calendar with additional features, where we put in the hard work, so you can focus on
-            your application logic.
+            Spare yourself the hassle of getting it all right: forms, calendar toggles, drag-to-create events. Someone already built all that for you.
           </h2>
 
           <div className={'landingPageActions'}>
