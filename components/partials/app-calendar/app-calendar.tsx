@@ -9,6 +9,8 @@ import { createScrollControllerPlugin } from "@schedule-x/scroll-controller";
 import { createSidebarPlugin } from "@sx-premium/sidebar";
 import { createEventsServicePlugin } from "@schedule-x/event-recurrence";
 import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
+import {createDragToCreatePlugin} from "@sx-premium/drag-to-create";
+import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 
 const getTheme = (resolvedTheme: string) => resolvedTheme === 'dark' ? 'dark' : 'light'
 
@@ -69,11 +71,11 @@ export default function AppCalendar() {
   const calendarApp = useNextCalendarApp({
     callbacks: {
       onDoubleClickDateTime: (dateTime: string) => {
-        interactiveEventModalPlugin.clickToCreate(dateTime, { calendarId: 'leisure' })
+        interactiveEventModalPlugin.clickToCreate(dateTime, { calendarId: 'clients' })
       },
 
       onDoubleClickDate: (date: string) => {
-        interactiveEventModalPlugin.clickToCreate(date, { calendarId: 'leisure' })
+        interactiveEventModalPlugin.clickToCreate(date, { calendarId: 'clients' })
       }
     },
     views: [viewMonthGrid, viewMonthAgenda, viewWeek, viewDay],
@@ -101,28 +103,28 @@ export default function AppCalendar() {
         title: 'Event 3',
         start: '2024-05-11 08:00',
         end: '2024-05-11 09:00',
-        calendarId: 'work',
+        calendarId: 'team',
       },
       {
         id: 4,
         title: 'Event 4',
         start: '2024-05-11 10:00',
         end: '2024-05-11 11:00',
-        calendarId: 'work',
+        calendarId: 'team',
       },
       {
         id: 5,
         title: 'Event 5',
         start: '2024-05-06 07:00',
         end: '2024-05-06 09:10',
-        calendarId: 'leisure',
+        calendarId: 'clients',
       },
       {
         id: 6,
         title: 'Event 6',
         start: '2024-05-07',
         end: '2024-05-07',
-        calendarId: 'leisure',
+        calendarId: 'clients',
       }
     ],
     calendars: calendars,
@@ -131,11 +133,29 @@ export default function AppCalendar() {
       createScrollControllerPlugin({ initialScroll: '05:50' }),
       eventsService,
       interactiveEventModalPlugin,
+      createDragToCreatePlugin(),
       createSidebarPlugin({
         eventsService,
-        openOnRender: false,
-        activeCalendarIds: ['personal', 'leisure', 'work'] },
-      )
+        openOnRender: typeof window === 'object' && window.innerWidth > 768,
+        activeCalendarIds: ['personal', 'clients', 'team'],
+        placeholderEvents: [
+          {
+            title: 'Morning brief',
+            calendarId: 'team',
+            people: ['John Doe', 'Jane Doe', 'Steve Smith'],
+          },
+          {
+            title: 'Client demo',
+            calendarId: 'clients',
+            people: ['John Doe', 'Jane Doe'],
+          },
+          {
+            title: 'Team meeting',
+            calendarId: 'clients',
+            people: ['John Doe', 'Jane Doe', 'Steve Smith'],
+          }
+        ]
+      })
     ],
   })
 
@@ -147,12 +167,16 @@ export default function AppCalendar() {
 
   const [tipClasses, setTipClasses] = useState(['calendar-tip'])
 
-  function createTipWhenHoveringCalendar(calendarEl: Element) {
+  const createTipWhenHoveringCalendar = (calendarEl: Element) => {
     calendarEl?.addEventListener('mouseenter', () => {
       setTimeout(() => {
         setTipClasses([...tipClasses, 'is-open'])
+
+        setTimeout(() => {
+          setTipClasses(tipClasses.filter(c => c !== 'is-open'))
+        }, 6850)
       }, 1000)
-    })
+    }, { once: true })
   }
 
   useEffect(() => {
@@ -177,9 +201,10 @@ export default function AppCalendar() {
     <div className={'appCalendarWrapper'}>
       <div className={tipClasses.join(' ')}>
         <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
-        <button className={'tipClose'} onClick={() => {
-          document.querySelector('.calendar-tip')?.remove()
-        }}>✕</button>
+
+        <div className={'tipTimer'}>
+          <CountdownCircleTimer size={24} strokeWidth={3} isPlaying duration={8} colors={['#329189', '#08837f', '#65a9dc']} colorsTime={[7, 3, 0]} />
+        </div>
       </div>
 
       <ScheduleXCalendar calendarApp={calendarApp} />
