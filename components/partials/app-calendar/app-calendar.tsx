@@ -178,7 +178,7 @@ export default function AppCalendar() {
 
         setTimeout(() => {
           setTipClasses(tipClasses.filter(c => c !== 'is-open'))
-        }, 6850)
+        }, 7500)
       }, 1000)
     }, { once: true })
   }
@@ -210,7 +210,7 @@ export default function AppCalendar() {
         <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
 
         <div className={'tipTimer'}>
-          <CountdownCircleTimer size={24} strokeWidth={3} isPlaying duration={8} colors={['#329189', '#08837f', '#65a9dc']} colorsTime={[7, 3, 0]} />
+          <CountdownCircleTimer key={String(tipWasShown)} size={24} strokeWidth={3} isPlaying duration={7.5} colors={['#329189', '#08837f', '#65a9dc']} colorsTime={[7, 3, 0]} />
         </div>
       </div>
 
