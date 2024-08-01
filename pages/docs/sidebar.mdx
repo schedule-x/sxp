@@ -27,6 +27,7 @@ import { createCalendar } from '@schedule-x/calendar'
 import { createSidebarPlugin } from "@sx-premium/sidebar";
 import { createEventsServicePlugin } from "@schedule-x/events-service";
 import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
+import { createDragToCreatePlugin } from "@sx-premium/drag-to-create";
 
 import '@sx-premium/sidebar/index.css'
 import '@sx-premium/interactive-event-modal/index.css'
@@ -43,11 +44,36 @@ const interactiveEventModal = createInteractiveEventModal({
 const sidebar = createSidebarPlugin({
   eventsService,
 
-  // Should the sidebar be open on render
+  // Optional: Should the sidebar be open on render
   openOnRender: false,
 
-  // Which calendars should be active on render
-  activeCalendarIds: ['personal', 'work', 'leisure', 'school']
+  // Optional: Which calendars should be active on render
+  activeCalendarIds: ['personal', 'work', 'leisure', 'school'],
+
+  // Optional: Should there be calendar toggles
+  hasCalendarToggles: true,
+
+  // Optional: placeholder events for drag-to-create
+  placeholderEvents: [
+    {
+      title: 'Morning brief',
+      calendarId: 'internal',
+      people: ['John Doe', 'Jane Doe', 'Steve Smith'],
+    },
+    {
+      title: 'Client demo',
+      calendarId: 'internal',
+      people: ['John Doe', 'Jane Doe'],
+    },
+    {
+      title: 'Team meeting',
+      calendarId: 'clients',
+      people: ['John Doe', 'Jane Doe', 'Steve Smith'],
+    }
+  ],
+
+  // Optional: factory function for generating event ids when events are created
+  idFactory: () => uuidv4() // or any other id generator
 })
 
 const calendar = createCalendar({
@@ -55,7 +81,8 @@ const calendar = createCalendar({
   plugins: [
     eventsService,
     sidebar,
-    interactiveEventModal
+    interactiveEventModal,
+    createDragToCreatePlugin(/* drag-to-create options */)
   ]
 })
 
