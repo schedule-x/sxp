@@ -13,9 +13,9 @@ export const calendars = {
       container: '#a29742',
     },
   },
-  work: {
-    label: 'Work',
-    colorName: 'work',
+  team: {
+    label: 'Team',
+    colorName: 'team',
     lightColors: {
       main: '#f91c45',
       container: '#ffd2dc',
@@ -27,9 +27,9 @@ export const calendars = {
       container: '#a24258',
     },
   },
-  school: {
-    label: 'School',
-    colorName: 'school',
+  management: {
+    label: 'Management',
+    colorName: 'management',
     lightColors: {
       main: '#34d721',
       container: '#dafff0',
@@ -41,9 +41,9 @@ export const calendars = {
       container: '#42a297',
     },
   },
-  leisure: {
-    label: 'Leisure',
-    colorName: 'leisure',
+  clients: {
+    label: 'Clients',
+    colorName: 'clients',
     lightColors: {
       main: '#1c7df9',
       container: '#d2e7ff',

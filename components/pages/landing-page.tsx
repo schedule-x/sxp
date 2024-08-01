@@ -36,9 +36,6 @@ export default function LandingPage() {
           </div>
 
           <AppCalendar/>
-          {/*<video autoPlay loop playsInline muted id={'demo'} className="landingPageDemoVideo" width={800} height={250}>*/}
-          {/*  <source src={'/videos/demo-june-2.mp4'} type={'video/mp4'} />*/}
-          {/*</video>*/}
         </section>
 
         <section id={'pricing'} className={'landingPage landingPage__pricing'}>
