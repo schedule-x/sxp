@@ -166,11 +166,15 @@ export default function AppCalendar() {
   }, [resolvedTheme])
 
   const [tipClasses, setTipClasses] = useState(['calendar-tip'])
+  const [tipWasShown, setTipWasShown] = useState(false)
 
   const createTipWhenHoveringCalendar = (calendarEl: Element) => {
     calendarEl?.addEventListener('mouseenter', () => {
+      if (tipWasShown) return
+
       setTimeout(() => {
         setTipClasses([...tipClasses, 'is-open'])
+        setTipWasShown(true)
 
         setTimeout(() => {
           setTipClasses(tipClasses.filter(c => c !== 'is-open'))
@@ -187,7 +191,10 @@ export default function AppCalendar() {
         mutations.forEach((mutation) => {
           if (mutation.addedNodes.length) {
             calendarEl = document.querySelector('.sx__calendar');
-            if (calendarEl) createTipWhenHoveringCalendar(calendarEl);
+            if (calendarEl) {
+              createTipWhenHoveringCalendar(calendarEl);
+              observer.disconnect();
+            }
           }
         })
       })
