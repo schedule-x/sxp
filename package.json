@@ -45,7 +45,8 @@
     "nextra-theme-docs": "latest",
     "react": "^18.2.0",
     "react-countdown-circle-timer": "^3.2.1",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rsuite": "^5.68.0"
   },
   "devDependencies": {
     "@schedule-x/eslint-config": "^1.41.2",

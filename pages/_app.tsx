@@ -9,6 +9,7 @@ import '@schedule-x/theme-default/dist/index.css'
 import '@sx-premium/sidebar/index.css'
 import '@sx-premium/interactive-event-modal/index.css'
 import '@sx-premium/drag-to-create/index.css'
+import 'rsuite/dist/rsuite-no-reset.min.css';
 import Script from "next/script";
 
 const podkova = Podkova({
