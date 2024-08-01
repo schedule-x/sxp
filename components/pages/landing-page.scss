@@ -38,7 +38,7 @@ html {
 }
 
 .landingPage__pricing {
-  padding: 2rem 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,6 +300,24 @@ html {
   cursor: pointer;
 
   .dark & {
+    color: #5a585d;
+  }
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  padding-bottom: 4rem;
+
+  .rs-panel-group,
+  .rs-panel-btn {
+    font-size: 1.175rem;
+  }
+
+  .rs-panel-body {
     color: #5a585d;
   }
 }

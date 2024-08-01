@@ -74,5 +74,9 @@
     box-shadow: 0 0 10px rgb(0 0 0 / 10%);
     cursor: pointer;
     margin-top: 1rem;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
   }
 }
