@@ -28,6 +28,6 @@ export default function MyApp({ Component, pageProps }) {
     </Script>
     <Script src="https://lmsqueezy.com/affiliate.js" defer/>
     {/*  do not use next script for localhost*/}
-    {alxScript && window?.location.hostname !== 'localhost' && <Script data-domain="premium.schedule-x.dev" src="http://plausible-ugw04os44c0cs4skgo44cgc0.37.27.200.51.sslip.io/js/script.js" defer />}
+    {alxScript && window?.location.hostname !== 'localhost' && <Script data-domain="premium.schedule-x.dev" src="https://analytics.schedule-x.com/js/script.js" defer />}
   </main>
 }
