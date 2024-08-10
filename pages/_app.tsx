@@ -18,11 +18,16 @@ const podkova = Podkova({
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
+  let alxScript = false
+  if (typeof window === 'object') alxScript = true
+
   return <main className={podkova.className + ' main'}>
     <Component {...pageProps} />
     <Script>
       {`window.lemonSqueezyAffiliateConfig = { store: "schedule-x" };`}
     </Script>
     <Script src="https://lmsqueezy.com/affiliate.js" defer/>
+    {/*  do not use next script for localhost*/}
+    {alxScript && window?.location.hostname !== 'localhost' && <Script data-domain="premium.schedule-x.dev" src="http://plausible-ugw04os44c0cs4skgo44cgc0.37.27.200.51.sslip.io/js/script.js" defer />}
   </main>
 }
