@@ -62,7 +62,7 @@ const config: DocsThemeConfig = {
         />
         <meta property="og:image:width" content="1600"/>
         <meta property="og:image:height" content="630"/>
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={url}/>
         <meta property="twitter:card" content="summary_large_image"/>
         <meta property="og:locale" content="en_US"/>
       </>
