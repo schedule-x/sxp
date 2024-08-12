@@ -13,10 +13,18 @@ const config: DocsThemeConfig = {
   chat: {
     link: 'https://discord.gg/yHbT3C4M8w',
   },
-  docsRepositoryBase:
-    'https://github.com/schedule-x/schedule-x/tree/main/website',
   footer: {
     component: CustomFooter,
+  },
+  editLink: {
+    component: () => {
+      return <></>
+    }
+  },
+  feedback: {
+    content: () => {
+      return <></>
+    }
   },
   darkMode: false,
   useNextSeoProps() {
