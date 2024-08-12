@@ -81,7 +81,7 @@ export default function LandingPage() {
           </div>
 
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 230">
-            <path fill="#fff" fill-opacity="1" d="M0,64L480,160L960,64L1440,96L1440,320L960,320L480,320L0,320Z"></path>
+            <path fill="#fff" fillOpacity="1" d="M0,64L480,160L960,64L1440,96L1440,320L960,320L480,320L0,320Z"></path>
           </svg>
         </section>
 
