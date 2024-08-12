@@ -33,60 +33,71 @@ import '@sx-premium/interactive-event-modal/index.css'
 
 const eventsService = createEventsServicePlugin()
 
+const eventModal = createInteractiveEventModal({
+  // dependency needed to add events
+  eventsService,
+
+  // (Optional): Available people for the event form
+  availablePeople: ['John Doe', 'Jane Doe'],
+
+  // (Optional): callback for when an event is added
+  onAddEvent: (event) => {
+    console.log(event)
+  },
+
+  // (Optional): callback for when an event is updated
+  onDeleteEvent: (eventId) => {
+    console.log(eventId)
+  },
+
+  // (Optional): callback for when an event start property is updated
+  onStartUpdate(start) {
+    console.log(start)
+  },
+
+  // (Optional): callback for when an event end property is updated
+  onEndUpdate(end) {
+    console.log(end)
+  },
+
+  // (Optional): callback which is invoked before opening the modal. Return false to prevent the modal from opening
+  canOpenModal: (event) => {
+    return event.calendarId === 'calendar-1';
+  },
+
+  // (Optional): configure the time picker to use 12-hour format
+  has12HourTimeFormat: true,
+
+  // (Optional): configuration for the field "title"
+  fields: {
+    title: {
+      label: 'Event Title',
+      name: 'event-title',
+      validator: (value) => {
+        return {
+          isValid: !!value && value.length >= 3,
+          message: 'Title must be at least 3 characters long'
+        }
+      }
+    },
+    description: {},
+  }
+})
+
 const calendar = createCalendar({
   // ...other configuration
   plugins: [
-    createInteractiveEventModal({
-      // dependency needed to add events
-      eventsService,
+    eventModal,
+    eventsService,
+  ],
 
-      // (Optional): Available people for the event form
-      availablePeople: ['John Doe', 'Jane Doe'],
-
-      // (Optional): callback for when an event is added
-      onAddEvent: (event) => {
-        console.log(event)
-      },
-
-      // (Optional): callback for when an event is updated
-      onDeleteEvent: (eventId) => {
-        console.log(eventId)
-      },
-
-      // (Optional): callback for when an event start property is updated
-      onStartUpdate(start) {
-        console.log(start)
-      },
-
-      // (Optional): callback for when an event end property is updated
-      onEndUpdate(end) {
-        console.log(end)
-      },
-
-      // (Optional): callback which is invoked before opening the modal. Return false to prevent the modal from opening
-      canOpenModal: (event) => {
-        return event.calendarId === 'calendar-1';
-      },
-
-      // (Optional): configure the time picker to use 12-hour format
-      has12HourTimeFormat: true,
-
-      // (Optional): configuration for the field "title"
-      fields: {
-        title: {
-          label: 'Event Title',
-          name: 'event-title',
-          validator: (value) => {
-            return {
-              isValid: !!value && value.length >= 3,
-              message: 'Title must be at least 3 characters long'
-            }
-          }
-        },
-        description: {},
-      }
-    })
-  ]
+  callbacks: {
+    onDoubleClickDateTime(dateTime) {
+      eventModal.clickToCreate(dateTime, {
+        id: 'some-event-id',
+      })
+    }
+  }
 })
 
 calendar.render(document.getElementById('your-calendar-wrapper'))

@@ -36,11 +36,11 @@ export default function ValidateLicenseKeyPage() {
           {!isLoading && !accessToken && !hasError && (
             <Fragment>
               <h1>
-                Validate your license key
+                Validate your license key 🔑
               </h1>
 
               <p>
-                Enter your license key to validate it. If we can validate your key, you will get an access token for the
+                Enter your license key to validate it. In return, you will get an access token for the
                 Schedule-X private registry. If you run into any problems, please contact us at tom@schedule-x.dev.
               </p>
 
@@ -62,7 +62,7 @@ export default function ValidateLicenseKeyPage() {
           {accessToken && (
             <Fragment>
               <h1>
-                Your access token
+                Your access token ✅
               </h1>
               <p>
                 Your access token is: <strong>{accessToken}</strong>
@@ -74,7 +74,13 @@ export default function ValidateLicenseKeyPage() {
           )}
 
           {hasError && (
-            <p>There was an error validating your license key. Please try again or contact us at tom@schedule-x.dev, and we will get in touch as soon as possible.</p>
+            <>
+              <h1>
+                Something went wrong 🤔
+              </h1>
+
+              <p>There was an error validating your license key. Please try again or contact us at tom@schedule-x.dev, and we will get in touch as soon as possible.</p>
+            </>
           )}
         </section>
       </div>

@@ -19,10 +19,10 @@
   }
 
   button {
-    background-color: #007bff;
+    background-color: var(--sx-color-primary);
     color: #fff;
     border: none;
-    border-radius: 0.25rem;
+    border-radius: var(--sx-rounding-small);
     padding: 0.5rem 1rem;
     font-size: 1rem;
     cursor: pointer;
