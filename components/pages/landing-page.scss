@@ -288,6 +288,10 @@ html {
     .sx__view-selection {
       display: none;
     }
+
+    .sx__is-calendar-small .sx__today-button {
+      display: initial;
+    }
   }
 }
 
