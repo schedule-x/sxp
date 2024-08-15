@@ -11,7 +11,7 @@ import ResourceCalendar from "../partials/app-calendar/resource-calendar";
 export type CalendarDemo = 'sidebar+modal' | 'resourceView'
 
 export default function LandingPage() {
-  const [activeCalendar, setActiveCalendar] = useState<CalendarDemo>('sidebar+modal')
+  const [activeCalendar, setActiveCalendar] = useState<CalendarDemo>('resourceView')
 
   const demoSetter = (demo: CalendarDemo) => {
     setActiveCalendar(demo)
