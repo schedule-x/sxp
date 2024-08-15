@@ -22,6 +22,7 @@ html {
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f4;
+  overflow: hidden;
 }
 
 .landingPage__heroAndDemo {
@@ -201,6 +202,11 @@ html {
   }
 }
 
+.tabButtons {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .pricingHeading {
   font-size: 3rem;
   font-weight: 700;
@@ -242,9 +248,48 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   width: 100%;
   position: relative;
+  height: 0;
+  opacity: 0;
+
+  :has(.sx__resource-view) {
+    .sx__view-selection {
+      display: none;
+    }
+
+    .sx__is-calendar-small .sx__today-button {
+      display: initial;
+    }
+  }
+
+  &.is-visible {
+    height: auto;
+    opacity: 1;
+  }
+
+  &.is-left-calendar {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s cubic-bezier(0.45, 0, 0.2, 1);
+    left: 0;
+
+    &:not(.is-visible) {
+      left: -200px;
+    }
+  }
+
+  &.is-right-calendar {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), right 0.4s cubic-bezier(0.45, 0, 0.2, 1);
+    right: 0;
+
+    &:not(.is-visible) {
+      right: -200px;
+    }
+  }
+
+  .sx__calendar {
+    line-height: initial;
+  }
 }
 
 .calendar-tip {
