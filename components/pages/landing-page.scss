@@ -245,8 +245,24 @@ html {
 }
 
 .appCalendarWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
   height: 0;
   opacity: 0;
+
+  :has(.sx__resource-view) {
+    .sx__view-selection {
+      display: none;
+    }
+
+    .sx__is-calendar-small .sx__today-button {
+      display: initial;
+    }
+  }
 
   &.is-visible {
     height: auto;
@@ -270,28 +286,9 @@ html {
       right: -200px;
     }
   }
-}
-
-.appCalendarWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto 0;
-  width: 100%;
-  position: relative;
 
   .sx__calendar {
     line-height: initial;
-  }
-
-  :has(.sx__resource-view) {
-    .sx__view-selection {
-      display: none;
-    }
-
-    .sx__is-calendar-small .sx__today-button {
-      display: initial;
-    }
   }
 }
 
