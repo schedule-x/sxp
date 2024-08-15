@@ -11,12 +11,13 @@ import { createEventsServicePlugin } from "@schedule-x/event-recurrence";
 import { createInteractiveEventModal } from "@sx-premium/interactive-event-modal";
 import {createDragToCreatePlugin} from "@sx-premium/drag-to-create";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
+import {createEventRecurrencePlugin} from "@schedule-x/event-recurrence";
 
-const getTheme = (resolvedTheme: string) => resolvedTheme === 'dark' ? 'dark' : 'light'
+type props = {
+  visible: boolean
+}
 
-export default function AppCalendar() {
-  const { resolvedTheme } = useTheme()
-
+export default function AppCalendar({ visible }: props) {
   const eventsService = createEventsServicePlugin()
 
   const interactiveEventModalPlugin = createInteractiveEventModal({
@@ -134,6 +135,7 @@ export default function AppCalendar() {
       eventsService,
       interactiveEventModalPlugin,
       createDragToCreatePlugin(),
+      createEventRecurrencePlugin(),
       createSidebarPlugin({
         eventsService,
         openOnRender: typeof window === 'object' && window.innerWidth > 768,
@@ -158,12 +160,6 @@ export default function AppCalendar() {
       })
     ],
   })
-
-  useEffect(() => {
-    if (calendarApp) {
-      calendarApp.setTheme(getTheme(resolvedTheme))
-    }
-  }, [resolvedTheme])
 
   const [tipClasses, setTipClasses] = useState(['calendar-tip'])
   const [tipWasShown, setTipWasShown] = useState(false)
@@ -205,7 +201,7 @@ export default function AppCalendar() {
   }, []);
 
   return <>
-    <div className={'appCalendarWrapper'}>
+    <div className={['appCalendarWrapper is-left-calendar', visible ? 'is-visible' : ''].join(' ')}>
       <div className={tipClasses.join(' ')}>
         <span className={'lampEmoji'}>💡</span> Double click somewhere in the grid to create an event
 

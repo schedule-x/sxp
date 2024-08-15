@@ -201,6 +201,11 @@ html {
   }
 }
 
+.tabButtons {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .pricingHeading {
   font-size: 3rem;
   font-weight: 700;
@@ -239,12 +244,56 @@ html {
 }
 
 .appCalendarWrapper {
+  height: 0;
+  opacity: 0;
+
+  &.is-visible {
+    height: auto;
+    opacity: 1;
+  }
+
+  &.is-left-calendar {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), left 0.4s cubic-bezier(0.45, 0, 0.2, 1);
+    left: 0;
+
+    &:not(.is-visible) {
+      left: -200px;
+    }
+  }
+
+  &.is-right-calendar {
+    transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), right 0.4s cubic-bezier(0.45, 0, 0.2, 1);
+    right: 0;
+
+    &:not(.is-visible) {
+      right: -200px;
+    }
+  }
+}
+
+@media(max-width: 540px) {
+  .appCalendarWrapper .sx__is-calendar-small .sx__interactive-event-modal {
+    max-width: 95vw;
+  }
+}
+
+.appCalendarWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 3rem auto 0;
+  margin: 0 auto 0;
   width: 100%;
   position: relative;
+
+  .sx__calendar {
+    line-height: initial;
+  }
+
+  :has(.sx__resource-view) {
+    .sx__view-selection {
+      display: none;
+    }
+  }
 }
 
 .calendar-tip {

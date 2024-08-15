@@ -4,8 +4,19 @@ import Link from "next/link";
 import SalesCard from "../partials/sales-card/sales-card";
 import AppCalendar from "../partials/app-calendar/app-calendar";
 import {Accordion} from 'rsuite';
+import TabButtons from "../partials/tab-buttons/tab-buttons";
+import {useState} from "react";
+import ResourceCalendar from "../partials/app-calendar/resource-calendar";
+
+export type CalendarDemo = 'sidebar+modal' | 'resourceView'
 
 export default function LandingPage() {
+  const [activeCalendar, setActiveCalendar] = useState<CalendarDemo>('sidebar+modal')
+
+  const demoSetter = (demo: CalendarDemo) => {
+    setActiveCalendar(demo)
+  }
+
   return (
     <>
       <div className={'landingPage page-wrapper'}>
@@ -36,7 +47,11 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          <AppCalendar/>
+          <TabButtons activeDemo={activeCalendar} setActiveDemo={demoSetter} />
+
+          <AppCalendar visible={activeCalendar === 'sidebar+modal'}/>
+
+          <ResourceCalendar visible={activeCalendar === 'resourceView'} />
         </section>
 
         <section style={{position: 'relative'}} id={'pricing'} className={'landingPage landingPage__pricing'}>
