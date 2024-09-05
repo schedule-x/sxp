@@ -3,4 +3,14 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.tsx',
 })
 
-module.exports = withNextra()
+module.exports = withNextra({
+  redirects: async () => {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://schedule-x.dev/premium',
+        permanent: true,
+      },
+    ]
+  }
+})
